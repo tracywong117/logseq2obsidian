@@ -205,7 +205,6 @@ def convert_logseq_to_obsidian(file_path):
 
 
 if __name__ == "__main__":
-    # Example usage: python auto_convert_notes.py --file_path /path/to/note.md --dest_path /path/to/converted_note.md
     parser = argparse.ArgumentParser(
         description="Convert a single Logseq note to syntax that looks good in Obsidian."
     )

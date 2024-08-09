@@ -16,24 +16,28 @@ Flags:
 Your Logseq notes directory will be like this:
 ```plaintext
 graph/
-├── pages/
-│   ├── notes.md
+├── assets/
+│   ├── image.png
 │   └── ...
 ├── journals/
 │   ├── 2024_08_08.md
 │   └── ...
-└── assets/
-    ├── image.png
+└── pages/
+    ├── notes.md
     └── ...
 ```
 
-- The `pages` and `journals` directories contain markdown files to be converted.
 - The `assets` directory, along with its contents, will be copied to the destination without changes.
+- The `pages` and `journals` directories contain markdown files to be converted.
 
 > [!Note] 
-> This script is experimental and may not work for all cases. 
-> Please backup your files before running this script.
-> The script will delete existing content in the destination directory.
+> This script is experimental and may not work for all cases.
+>
+> Note that the script will delete existing content in the destination directory.
+> 
+> Recommend you copy the `assets`, `journals` and `pages` directories to a newly created directory named graph in this current directory.
+> 
+> And keep using `--dest_path obsidian_vault` which create a new directory named obsidian_vault in this current directory to store all the converted markdown files.
 
 ## Conversion Process
 For each .md in `pages`, `journals`, the script:
@@ -89,4 +93,37 @@ For each .md in `pages`, `journals`, the script:
 #### **Converted Note**
 View [here](result.txt).
 
+## Automation (Optional)
+`automation.sh` is a script that perform conversion automatically. You just need to change `LOGSEQ_SOURCE` and `OBSIDIAN_DESTINATION` to the path to your Logseq directory and Obsidian directory respectively.
 
+```sh
+LOGSEQ_SOURCE="/Users/tracywong/Library/Mobile Documents/iCloud~com~logseq~logseq/Documents"
+OBSIDIAN_DESTINATION="/Users/tracywong/Library/Mobile Documents/iCloud~md~obsidian/Documents/Tracy's Notes"
+```
+
+>[!Caution]
+> This script will delete asset, journals, pages folder inside your Obsidian directory if any.
+> Please be careful and backup your files before running this script.
+
+### Schedule with Cron: (Optional)
+If you want to run `automation.sh` every day, then schedule with Cron.
+
+1. Make the script executable:
+```sh
+chmod +x automation.sh
+```
+
+2. Open the crontab file for editing:
+```sh
+crontab -e
+```
+
+3. Add the following line to run the script every midnight:
+```sh
+0 0 * * * /path/to/run_conversion.sh
+```
+
+> [!Note]
+> `0 0`: At minute 0 and hour 0 (midnight).
+> 
+> `* * *`: Every day of the month, every month, and every day of the week.

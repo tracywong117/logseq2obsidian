@@ -1,0 +1,4 @@
+graph/
+obsidian_vault/
+__pycache__/
+*.pyc

@@ -30,7 +30,8 @@ graph/
 - The `pages` and `journals` directories contain markdown files to be converted.
 - The `assets` directory, along with its contents, will be copied to the destination without changes.
 
-> [!Note] This script is experimental and may not work for all cases. 
+> [!Note] 
+> This script is experimental and may not work for all cases. 
 > Please backup your files before running this script.
 > The script will delete existing content in the destination directory.
 

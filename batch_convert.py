@@ -23,7 +23,7 @@ def copy_whole_folder(src_folder, dest_folder):
     shutil.copytree(src_folder, dest_folder)
     
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Convert all Logseq notes to Obsidian notes.")
+    parser = argparse.ArgumentParser(description="Convert all Logseq notes to syntax that looks good in Obsidian.")
     parser.add_argument("--file_path", help="Path to the Logseq notes directory to process")
     parser.add_argument("--dest_path", help="Path to the destination directory")
     args = parser.parse_args()
@@ -44,5 +44,3 @@ if __name__ == "__main__":
             copy_all_md(os.path.join(src_folder, folder_name), os.path.join(dest_folder, folder_name))
 
         copy_whole_folder(os.path.join(src_folder, "assets"), os.path.join(dest_folder, "assets"))
-
-# icloud /Users/tracywong/Library/Mobile Documents/iCloud~md~obsidian/Documents/Tracy's Repository
